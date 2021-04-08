@@ -1,0 +1,349 @@
+@import "../scss/variables/variables";
+@import "../scss/mixins/media-queries";
+@import "../scss/mixins/mixins";
+
+%flex-centre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: $font-color-wh;
+  font-family: $p-font;
+}
+
+// header section 
+header{
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  
+  
+  // border: 1px solid white;
+  
+  
+  
+
+img{
+  height: 35px;
+  position: relative;
+  top: 34%;
+  left: 1.5em;
+  width: auto;
+  box-shadow: 3px 4px 3px black;
+  animation: spinner 3s;
+  transition: height 500ms;
+
+  &:hover{
+
+    height: 38px;
+
+    @keyframes spinner {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  
+  
+}
+
+#burger {
+  font-size: 35px;
+  text-shadow: 3px 4px 3px black;
+  position: absolute;
+  float: right;
+  top: 30%;
+  right: 1.8em;
+  display: block;
+  z-index: 5;
+
+
+}
+  
+ul {
+  display: none;
+  align-items: center;
+  padding: 1em;
+  justify-content: flex-end;
+  
+  flex-direction: column;
+  width: 13%;
+  height: 30vh;
+  border-radius: 5px;
+  
+
+  position: relative;
+  float: right;
+  
+  left: 0;
+  box-shadow: $medium-box-shadow;
+  background-color: $font-color-black;
+  
+  
+  
+
+&.show{
+  display: flex;
+} 
+
+li {
+   list-style: none;
+   height: 100%;
+   font-size: $font-medium-length-16;
+   color: $font-color-wh;
+   transition-duration: 2s;
+   display: flex;
+   flex-direction: row;
+   text-decoration: none;
+   
+
+   
+   &:hover{
+    font-size: $font-medium-length-16 + 2px;
+    text-decoration: underline;
+  }
+   
+
+  }
+
+  a {
+    text-decoration: none;
+    margin: 5%;
+  }
+}
+
+}
+
+// landing-section area/ photo
+
+.landing-section{
+  height: 100vh;
+  width: 100vw;
+  border: 2px solid white;
+  @extend %flex-centre;
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(26, 58, 38, 0.73)),
+    url(../img/port-cafe.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center;
+  
+  
+
+//text area
+.intro{
+  @extend %flex-centre;
+  flex-direction: column;
+  text-shadow: 3px 4px 3px black;
+  line-height: 3em;
+  
+h1{
+  color: #F7392A;
+  font-size: $font-large-length-64;
+  font-family: $title-font;
+  text-align: center;
+
+
+  &::before{
+    content: '-';
+    color: white;
+  }
+  &::after{
+    content: '-';
+    color: white;
+  }
+
+  // responsive section
+  @include mobile {
+      font-size: $font-large-length-48;
+    
+  }
+
+
+  
+}
+
+h4{
+  font-size: $font-medium-length-16 + 10px;
+  color: white;
+  text-align: center;
+  font-family: $h-font;
+  font-weight: 600;
+// responsive section
+  @include mobile {
+    font-size: $font-medium-length-24;
+}
+
+}
+
+#intro-button{
+  background-color:transparent;
+  color: $font-color-wh;
+  width: 100px;
+  height: 30px;
+  margin: 20px auto;
+  @extend %flex-centre;
+  border-radius: 25px;
+  border: 1px solid white;
+  box-shadow: 3px 4px 6px black;
+  font-style: none;
+  font-size: 1rem;
+  text-decoration: none;
+  font-family: $h-font;
+  @include transitionBg(all);
+
+  // responsive section
+  @include mobile {
+    width: 110px;
+    height: 35px;
+}
+  
+  &:hover{
+    background-color:$font-color-black;
+    color: $font-color-wh;
+    text-shadow: none;
+    height: 35px;
+    width: 100px;
+
+    @include mobile {
+      width: 110px;
+      height: 40px;
+  }
+
+    
+  }
+
+  
+  
+  
+}
+
+}
+// social media section
+.media-bar{
+  position: absolute;
+  bottom: 20%;
+  width: 100%;
+  @extend %flex-centre;
+
+  
+
+  &::before,
+  &::after
+  {
+    display: inline-block;
+    position: relative;
+    top: 16px;
+    
+
+    content: "";
+    border-top: .1rem solid $font-color-wh;
+    width: 15rem;
+    
+    transform: translateY(-1rem);
+
+   }
+
+   a {
+    margin: 2%;
+    i{
+      font-size: 20px;
+      cursor: pointer;
+      &:hover{
+        font-size: 22px;
+      }
+     }
+   }
+   // responsive section
+   @include mobile {
+    bottom: 10%;
+   }
+
+
+}
+
+
+
+
+}
+// end of landing area
+
+// info block area 
+.info-columns{
+
+  height: 100%;
+  background-color: #5A838C;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 3, 1fr);
+
+  box-shadow: 5px 3px 7px #A6381F;
+
+
+
+
+
+
+
+
+  .info-block{
+    background:rgba(166, 56, 31, 0.6);
+    border: 2px solid white;
+
+
+   
+  
+    .block{
+  
+      @extend %flex-centre;
+      flex-direction: column;
+      padding: 5%;
+      line-height: 1.6rem;
+      text-align: center;
+      line-height: 2em;
+
+      p{
+        width: 60%;
+        // responsive section
+        @include mobile {
+          font-size: $font-small-length-12;
+        }
+
+      }
+
+      i {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+  
+      h2 {
+        font-size: $font-medium-length-24 + 5px;
+        font-family: $h-font;
+        font-weight: 600;
+        
+  
+      }
+  
+      h5{
+        font-size: $font-medium-length-16;
+        font-family: $h-font;
+        font-weight: 500;
+  
+      }
+  
+    }
+
+
+
+}
+}

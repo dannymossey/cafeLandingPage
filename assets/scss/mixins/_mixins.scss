@@ -1,0 +1,9 @@
+@mixin transitionBg ($el) {
+  -webkit-transition: ($el) 500ms ease-out;
+  -moz-transition: ($el) 500ms ease-out;
+  -o-transition: ($el) 500ms ease-out;
+  transition: ($el) 500ms ease-out;
+  
+}
+
+
